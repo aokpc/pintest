@@ -3,7 +3,8 @@
 arduino系ボードのピンの入出力をリアルタイムで見ることができます
 
 1. pintest.inoをボードに書き込み
-2. `deno run -A tcp2ws.ts`
+2. `python serial2ws.py`
+3. index.htmlを開く
 
 # 通信
 
