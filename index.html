@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinTest</title>
+</head>
+
+<body>
+    <style>
+        .app {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .chart {
+            margin: 10px;
+            display: flex;
+            width: calc(100% - 326px);
+            height: 400px;
+        }
+
+        .canvas {
+            width: calc(100% - 326px);
+            height: 400px;
+        }
+
+        .main {
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pinView {
+            display: flex;
+            height: 22px;
+            width: 326px;
+            padding: 0;
+            flex-direction: row;
+        }
+
+        .pinHead {
+            display: flex;
+            height: 22px;
+            width: 326px;
+            padding: 0;
+            flex-direction: row;
+        }
+
+        .pin {
+            display: flex;
+            border: 1px;
+            border-style: solid;
+            width: 70px;
+            height: 22px;
+            text-align: center;
+            justify-content: center;
+            background-color: #fbb;
+        }
+
+        .mode {
+            display: flex;
+            border: 1px;
+            border-style: solid;
+            width: 150px;
+            height: 22px;
+            text-align: center;
+            justify-content: center;
+            background-color: #ffb;
+        }
+
+        .value {
+            display: flex;
+            border: 1px;
+            border-style: solid;
+            width: 100px;
+            height: 22px;
+            text-align: center;
+            justify-content: center;
+            background-color: #bbf;
+        }
+
+        .border {
+            display: flex;
+            border: 1px;
+            border-style: solid;
+            width: 100px;
+            height: 22px;
+            text-align: center;
+            justify-content: center
+        }
+
+        .addpin {
+            border-radius: 0;
+            margin: 0;
+            width: 100px;
+            height: 24px;
+        }
+
+        .map {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .v {
+            display: flex;
+            width: 50px;
+            height: 22px;
+            background-color: #bbb;
+        }
+
+        .vdw {
+            display: flex;
+            width: 50px;
+            height: 22px;
+            background-color: #fbb;
+        }
+
+        .vup {
+            display: flex;
+            width: 50px;
+            height: 22px;
+            background-color: #bfb;
+        }
+
+        .prompt {
+            visibility: hidden;
+        }
+    </style>
+    <div class="app">
+        <div class="main">
+            <button type="button" class="addpin" onclick="addPin()">PINを追加</button>
+            <button type="button" class="addpin" onclick="setdelay()">送信間隔</button>
+            <input type="text" class="prompt">
+            <div class="pinHead">
+                <div class="pin">
+                    <b>PIN</b>
+                </div>
+                <div class="mode">
+                    <b>MODE</b>
+                </div>
+                <div class="value">
+                    <b>VALUE</b>
+                </div>
+            </div>
+        </div>
+        <div class="chart">
+            <canvas class="canvas"></canvas>
+        </div>
+    </div>
+    <script src="./Chart.bundle.js"></script>
+    <script>
+        function q(search) {
+            return document.querySelector(search)
+        }
+
+        function c(name, property = {}, attr = {}) {
+            const dom = document.createElement(name)
+            for (const key in property) {
+                if (typeof property[key] !== "undefined" && typeof dom[key] !== "undefined") {
+                    dom[key] = property[key];
+                }
+            }
+            for (const key in attr) {
+                dom.setAttribute(key, attr[key])
+            }
+            return dom
+        }
+    </script>
+    <script src="./main.js"></script>
+</body>
+
+</html>
